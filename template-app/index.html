@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Photon</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/photon.min.css">
+
+    <!-- Javascript -->
+    <script src="js/menu.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    window.$= window.jQuery= require('./js/jquery-1.11.3.min.js');
+    </script>
+    
+  </head>
+  <body>
+    <div class="window">
+
+      <!-- .toolbar-header sits at the top of your app -->
+      <header class="toolbar toolbar-header">
+        <h1 class="title">Photon</h1>
+      </header>
+
+      <!-- Your app's content goes inside .window-content -->
+      <div class="window-content">
+        <div class="pane-group">
+          <div class="pane pane-sm sidebar">
+            <nav class="nav-group">
+              <form>
+                <input type="text" id="note">
+                <button id="btnAdd"> Add note</button>  
+              </form> 
+              <h5 class="nav-group-title">Favorites</h5>
+              <div id="containerNotes"></div>
+              <!--<span class="nav-group-item">
+                <span class="icon icon-home"></span>
+                connors
+              </span>-->
+            </nav>
+          </div>
+
+          <div class="pane">
+            <form id="currentNote">
+              Title: <input type="text" class="title">  <br>    
+              Description: <br> 
+              <textarea class="description"></textarea> <br>  
+              Favorite <input type="checkbox" class="isFavorite">
+              <button class="delete">Delete </button> 
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./js/notes.js" >
+    </script>
+  </body>
+</html>

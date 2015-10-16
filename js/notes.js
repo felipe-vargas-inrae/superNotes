@@ -43,7 +43,8 @@ function addKeyListenerInput(){
       id = setTimeout(
         function(){
           var identifer= me.parent().attr('id');
-          var note={identifer:identifer, text:me.val(), isFavorite:false};
+          var isCheck=me.parent().find('.isFavorite').get(0).checked;
+          var note={identifer:identifer, text:me.val(), isFavorite:isCheck};
           updateNote(note);
         }, 300
       );
@@ -55,6 +56,10 @@ function addCheckboxListener(){
     function(){
       var isCheck;
       isCheck=this.checked;
+      var me = $(this);
+      var identifer= me.parent().attr('id');
+      var note={identifer:identifer, text:me.val(), isFavorite:isCheck};
+      updateNote(note);
     }
   );
 }
@@ -67,8 +72,9 @@ function updateContainerNotes(){
 		var note=notes[i];
 		noteDiv=$('<div>').attr('id',note.identifer);
 		noteDiv.html(
-			'<input type="text" class="text" value="'+note.text+'"> Favorite <input type="checkbox"> <button class="delete">Delete</button>');
-		container.append(noteDiv);
+			'<input type="text" class="text" value="'+note.text+'"> Favorite <input type="checkbox" class="isFavorite"> <button class="delete">Delete</button>');
+		//noteDiv.find(".isFavorite").prop("checked", note.isFavorite);
+    container.append(noteDiv);
 	};
   addListenersDelete();
   addKeyListenerInput();
