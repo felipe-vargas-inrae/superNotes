@@ -21,68 +21,6 @@
     	<div id="containerNotas"></div>
     </div>
   </body>
-  <script type="text/javascript">
-
-  	function generateId(){
-  		var counter=localStorage.getItem("counter");
-  		if(counter==null) {
-  			localStorage.setItem("counter","0");
-  			return 0;
-  		}
-  		counter=parseInt(counter);
-  		localStorage.setItem("counter",++counter);
-  		return counter;
-  	}
-  	function Nota(text, isFavorite){
-  		this.text= text;
-  		this.isFavorite=isFavorite;
-  		this.identifer= generateId();
-  	}
-  	$('#btnAdd').click(
-  		function(e){
-  			e.preventDefault();
-  			var nota= new Nota('',false);
-  			nota.text= $('#nota').val();
-  			var notas=getNotas();
-  			notas.push(nota);
-  			setNotas(notas);
-  			updateContainerNotas();
-  		}
-  	);
-
-  	$('#containerNotas ')
-
-  	function updateContainerNotas(){
-  		var container=$("#containerNotas");
-  		var notas= getNotas();
-  		container.html('');
-  		for (var i = 0 ; i < notas.length; i++) {
-  			var nota=notas[i];
-  			notaDiv=$('<div>').attr('id',nota.identifer);
-  			notaDiv.html(
-  				'<input type="text" value="'+nota.text+'"> Favorito <input type="checkbox"> <button class="delete">Borrar</button>');
-  			container.append(notaDiv);
-  		};
-  	}
-
-  	function getNotas(){
-  		var notas=JSON.parse(localStorage.getItem("notas"));
-  		if(notas==null) return [];
-  		return notas;
-  	}
-  	function setNotas(notas){
-  		localStorage.removeItem("notas");
-  		localStorage.setItem("notas", JSON.stringify(notas));
-  	}
-
-  	function deleteNota(){
-
-  	}
-  	
-  	
-
-  	
-  
-	console.log($);
+  <script type="text/javascript" src="./js/notas.js" >
   </script>
 </html>
